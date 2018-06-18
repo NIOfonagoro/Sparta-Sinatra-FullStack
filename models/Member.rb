@@ -3,7 +3,7 @@ class Member
   attr_accessor :id, :first_name, :last_name, :gender, :origin
 
   def self.open_connection
-    conn = PG.connect( dbname: "members" )
+    conn = PG.connect( dbname: "member_data" )
   end
 
   def self.all

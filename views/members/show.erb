@@ -1,2 +1,7 @@
+<h1>Show Page for member <%= @member.id %> </h1>
 
-<h1>Show Page for : <%= @member.id %></h1>
+<h1><%= @member.first_name %></h1>
+<h2><%= @member.last_name %></h2>
+<h3><%= @member.gender %></h3>
+<h4><%= @member.origin %></h4>
+<h5><a href="/members/<%= @member.id %>/edit">EDIT</a></h5>

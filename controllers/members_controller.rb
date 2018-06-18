@@ -27,27 +27,57 @@ class MembersController < Sinatra::Base
   get "/members/:id" do
     id = params[:id].to_i
 
-    @members = Member.find id
+    @member = Member.find id
 
     erb :"members/show"
   end
 
   # Create - POST
   post "/members" do
+    member = Member.new
 
+    member.first_name = params[:first_name]
+    member.last_name = params[:last_name]
+    member.gender = params[:gender]
+    member.origin = params[:origin]
+
+    member.save
+
+    redirect '/members'
   end
 
   # Edit - GET
   get "/members/:id/edit" do
+    id = params[:id].to_i
+
+    @member = Member.find id
+
     erb :"members/edit"
   end
-  # Update - PUT
-  put "/memebers/:id" do
 
+  # Update - PUT
+  put "/members/:id" do
+    id = params[:id].to_i
+
+    member = Member.find id
+
+    member.first_name = params[:first_name]
+    member.last_name = params[:last_name]
+    member.gender = params[:gender]
+    member.origin = params[:origin]
+
+    member.save
+
+  redirect '/members'
   end
 
   # Destroy - DELETE
   delete "/members/:id" do
+    id = params[:id].to_i
+
+    Member.destroy id
+
+    redirect '/members'
 
   end
 

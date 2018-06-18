@@ -1,0 +1,26 @@
+<form action="members<% if(@member.id != '') %>/<%= @member.id %><% end %>" method="post">
+
+  <div>
+    <label for="make">Make</label>
+    <input type="text" name="make" value="<%= @member.first_name %>" placeholder="Car Make">
+  </div>
+  <div>
+    <label for="model">Model</label>
+    <input type="text" name="model" value="<%= @member.last_name %>" placeholder="Car Model">
+  </div>
+  <div>
+    <label for="year">Year</label>
+    <input type="text" name="year" value="<%= @member.gender %>" placeholder="Car Year">
+  </div>
+  <div>
+    <label for="year">Year</label>
+    <input type="text" name="year" value="<%= @member.origin %>" placeholder="Car Year">
+  </div>
+
+  <input type="submit" value="Submit">
+
+  <% if(@member.id != '') %>
+    <input type="hidden" name="_method" value="PUT">
+  <% end %>
+
+</form>
