@@ -13,17 +13,22 @@ class MembersController < Sinatra::Base
 
   # Index - GET
   get "/members" do
-
+    @members = Member.all
     erb :'members/index'
   end
 
   # New - GET
   get "/members/new" do
+    @member = Member.new
     erb :'members/new'
   end
 
   # Show - GET
   get "/members/:id" do
+    id = params[:id].to_i
+
+    @members = Member.find id
+
     erb :"members/show"
   end
 
