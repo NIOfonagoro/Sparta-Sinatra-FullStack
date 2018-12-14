@@ -1,0 +1,34 @@
+<head>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<h1 class="index">Index Page</h1>
+
+<img src="images/SinatraChristmas.jpg" alt="sinatra">
+
+<table>
+  <thead>
+    <th>first_name</th>
+    <th>last_name</th>
+    <th>gender</th>
+    <th>origin</th>
+    <th colspan='2'></th>
+  </thead>
+  <tbody>
+    <% @members.each do |member| %>
+      <tr>
+        <td><%= member.first_name %></td>
+        <td><%= member.last_name %></td>
+        <td><%= member.gender %></td>
+        <td><%= member.origin %></td>
+        <td><a href="/members/<%= member.id %>">See more</a></td>
+        <td>
+          <form class="" action="/members/<%= member.id %>" method="post">
+            <input type="submit" name="" value="Delete">
+            <input type="hidden" name="_method" value="DELETE">
+          </form>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
